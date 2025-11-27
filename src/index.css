@@ -1,68 +1,132 @@
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* Contenedor general */
+.weather-page {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  text-align: center;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+/* Título */
+.weather-page h1 {
+  margin-bottom: 20px;
 }
 
-body {
-  margin: 0;
+/* Formulario */
+.weather-form {
+  margin-bottom: 20px;
   display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  justify-content: center;
+  gap: 10px;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+/* Input */
+.weather-input {
+  padding: 8px 12px;
+  font-size: 16px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  flex: 1;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
+/* Botón */
+.weather-button {
+  padding: 8px 16px;
+  font-size: 16px;
+  border-radius: 4px;
+  border: none;
+  background-color: #007bff;
+  color: #fff;
   cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  transition: background-color 0.3s;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+.weather-button:hover {
+  background-color: #0056b3;
+}
+
+/* Error */
+.weather-error {
+  color: red;
+  margin-bottom: 20px;
+}
+
+/* Spinner */
+.spinner-container {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+}
+
+/* ------------------------ */
+/* Estilos existentes de WeatherList y tarjetas */
+
+/* Lista de días */
+.weather-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* Día individual */
+.weather-day {
+  background: #f5f5f5;
+  padding: 1rem;
+  border-radius: 12px;
+}
+
+/* Contenedor de tarjetas dentro de cada día */
+.weather-cards {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  padding-bottom: 10px; /* espacio extra para scroll horizontal */
+}
+
+/* Tarjeta individual */
+.weather-card {
+  background: white;
+  padding: 1rem;
+  border-radius: 10px;
+  min-width: 120px;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  flex-shrink: 0; /* evita que las tarjetas se reduzcan demasiado */
+}
+
+/* ------------------------ */
+/* Responsive */
+
+/* Pantallas pequeñas (móviles) */
+@media (max-width: 480px) {
+  .weather-form {
+    flex-direction: column;
+    gap: 10px;
   }
-  a:hover {
-    color: #747bff;
+
+  .weather-input {
+    width: 100%;
   }
-  button {
-    background-color: #f9f9f9;
+
+  .weather-button {
+    width: 100%;
+  }
+
+  .weather-card {
+    min-width: 100px;
+    padding: 0.8rem;
+    font-size: 14px;
+  }
+}
+
+/* Pantallas medianas (tablets) */
+@media (min-width: 481px) and (max-width: 768px) {
+  .weather-card {
+    min-width: 110px;
+    padding: 0.9rem;
+    font-size: 15px;
   }
 }
